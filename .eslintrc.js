@@ -33,6 +33,16 @@ module.exports = {
             from: 'src/components/molecules',
             message: 'molecules should not be used by atoms',
           },
+          {
+            target: './src/*',
+            from: './src/components/**/!(index)*',
+            message: 'only index.(ts|tsx) can be imported from components',
+          },
+          {
+            target: './src/!(components)/**/*',
+            from: './src/components/**/!(index)*',
+            message: 'only index.(ts|tsx) can be imported from components',
+          },
         ],
       },
     ],
