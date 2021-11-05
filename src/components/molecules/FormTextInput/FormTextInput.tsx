@@ -1,7 +1,10 @@
 import React from 'react'
+import { Button } from '../../atoms/Button'
 
-interface Props {}
-
-export const FormTextInput = (props: Props) => {
-  return <div></div>
+export const FormTextInput = () => {
+  return (
+    <div>
+      <Button></Button>
+    </div>
+  )
 }

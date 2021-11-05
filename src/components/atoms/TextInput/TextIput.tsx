@@ -1,7 +1,5 @@
 import React from 'react'
 
-interface Props {}
-
-export const TextIput = (props: Props) => {
+export const TextIput = () => {
   return <div></div>
 }

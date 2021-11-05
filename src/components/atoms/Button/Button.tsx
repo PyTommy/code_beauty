@@ -1,7 +1,5 @@
 import React from 'react'
 
-interface Props {}
-
-export const Button = (props: Props) => {
+export const Button = () => {
   return <div></div>
 }

@@ -1,7 +1,5 @@
 import React from 'react'
 
-interface Props {}
-
-export const Typography = (props: Props) => {
+export const Typography = () => {
   return <div></div>
 }

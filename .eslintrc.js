@@ -8,6 +8,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -17,9 +19,22 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'import'],
   rules: {
+    '@typescript-eslint/no-empty-interface': 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
+    'import/no-restricted-paths': [
+      'error',
+      {
+        zones: [
+          {
+            target: 'src/components/atoms',
+            from: 'src/components/molecules',
+            message: 'molecules should not be used by atoms',
+          },
+        ],
+      },
+    ],
   },
 }
