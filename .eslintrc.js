@@ -20,6 +20,14 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint', 'import'],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+    'import/resolver': {
+      typescript: {}, // https://stackoverflow.com/questions/57032522/eslint-complains-about-typescripts-path-aliasing
+    },
+  },
   rules: {
     '@typescript-eslint/no-empty-interface': 'off',
     quotes: ['error', 'single'],
