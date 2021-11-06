@@ -29,9 +29,18 @@ module.exports = {
     },
   },
   rules: {
-    '@typescript-eslint/no-empty-interface': 'off',
+    // code styles
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
+    'max-lines-per-function': ['error', { max: 100 }],
+    'max-depth': ['error', 3], // ブロックのネストの深さの最大 https://eslint.org/docs/rules/max-depth
+    'max-nested-callbacks': ['error', 2], // https://eslint.org/docs/rules/max-nested-callbacks
+    'max-params': ['error', 3], // 関数の引数の最大数 https://eslint.org/docs/rules/max-params
+    'no-else-return': 'error', // https://eslint.org/docs/rules/no-else-return
+    complexity: ['error', { max: 10 }], // 循環的複雑度の最大値 https://eslint.org/docs/rules/complexity
+
+    // typescript
+    '@typescript-eslint/no-empty-interface': 'off',
 
     // import
     'import/no-named-as-default-member': 'off',
