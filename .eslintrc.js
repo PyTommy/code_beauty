@@ -32,7 +32,14 @@ module.exports = {
     '@typescript-eslint/no-empty-interface': 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
+
+    // import
     'import/no-named-as-default-member': 'off',
+    'import/no-deprecated': 'error',
+    'import/first': 'error',
+    'import/no-duplicates': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-default-export': 'error',
     'import/no-restricted-paths': [
       'error',
       {
