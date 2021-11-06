@@ -24,7 +24,7 @@ module.exports = {
     '@typescript-eslint/no-empty-interface': 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
-    'import/no-relative-parent-imports': 'error',
+    // 'import/no-relative-parent-imports': 'error',
     'import/no-restricted-paths': [
       'error',
       {
