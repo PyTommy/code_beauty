@@ -3,8 +3,7 @@ import shadows, { Shadows } from '@mui/material/styles/shadows'
 
 import { Color } from '@utils/color.const'
 
-createTheme()
-export const themeOptions: ThemeOptions = {
+const defaultThemeOptions: ThemeOptions = {
   palette: {
     text: {
       primary: Color.textPrimary,
@@ -53,3 +52,5 @@ export const themeOptions: ThemeOptions = {
     },
   },
 }
+
+export const defaultTheme = createTheme(defaultThemeOptions)
