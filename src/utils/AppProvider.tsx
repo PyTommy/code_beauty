@@ -1,8 +1,8 @@
-import { ThemeProvider } from '@mui/material'
+import { ThemeProvider as MuiThemeProvider } from '@mui/material'
 import React from 'react'
 
-import { defaultTheme } from './theme'
+import { muiTheme } from './styles/muiTheme'
 
 export const AppProvider: React.FC = ({ children }) => (
-  <ThemeProvider theme={defaultTheme}>{{ children }}</ThemeProvider>
+  <MuiThemeProvider theme={muiTheme}>{{ children }}</MuiThemeProvider>
 )
