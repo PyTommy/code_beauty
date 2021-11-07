@@ -42,6 +42,7 @@ module.exports = {
     'prefer-const': 'error',
     'require-await': 'error',
     'newline-per-chained-call': ['error', { ignoreChainWithDepth: 1 }],
+    'no-unused-vars': 'error',
 
     // typescript
     '@typescript-eslint/no-empty-interface': 'off',
