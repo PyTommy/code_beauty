@@ -12,7 +12,9 @@ import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
 
-export function SignInForm() {
+interface Props {}
+// eslint-disable-next-line no-unused-vars
+export function SignInForm(props: Props) {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
