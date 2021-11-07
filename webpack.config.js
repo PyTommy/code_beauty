@@ -2,6 +2,7 @@ const prod = process.env.NODE_ENV === 'production'
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const Dotenv = require('dotenv-webpack')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 module.exports = {
@@ -32,6 +33,7 @@ module.exports = {
       template: 'public/index.html',
     }),
     new MiniCssExtractPlugin(),
+    new Dotenv(),
   ],
   resolve: {
     fallback: { path: require.resolve('path-browserify') },
