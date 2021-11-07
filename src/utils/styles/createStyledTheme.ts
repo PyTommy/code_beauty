@@ -11,7 +11,9 @@ const defaultTheme: DefaultTheme = {
   breakpoints: BreakPoints,
 } as const
 
-export const createStyledTheme = ({ palette = {} }: ThemeProviderProps) => ({
+export const createStyledComponentTheme = ({
+  palette = {},
+}: ThemeProviderProps) => ({
   ...defaultTheme,
   palette: {
     ...defaultTheme.palette,
