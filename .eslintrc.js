@@ -58,19 +58,30 @@ module.exports = {
       {
         zones: [
           {
-            target: 'src/components/atoms',
-            from: 'src/components/molecules',
-            message: 'molecules should not be used by atoms',
+            target: 'src/components/atoms/**/*',
+            from: 'src/components/!(atoms)/**/*',
+            message: 'atomsは、他のcomponentsに依存しちゃダメ!',
+          },
+          {
+            target: 'src/components/molecules',
+            from: 'src/components/organisms',
+            message: 'moleculesは、organismsに依存しちゃダメ！',
+          },
+          {
+            target: 'src/components/!(templates)/**/*',
+            from: 'src/components/templates/**/*',
+            message:
+              'templates should not be not use by other component folders',
           },
           {
             target: './src/*',
             from: './src/components/**/!(index)*',
-            message: 'only index.(ts|tsx) can be imported from components',
+            message: 'index.tsxからのみcomponentsを参照して！',
           },
           {
             target: './src/!(components)/**/*',
             from: './src/components/**/!(index)*',
-            message: 'only index.(ts|tsx) can be imported from components',
+            message: 'index.tsxからのみcomponentsを参照して！',
           },
         ],
       },
