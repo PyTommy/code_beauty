@@ -26,7 +26,7 @@ export function SignInForm(props: Props) {
   }
 
   return (
-    <Container component="main" maxWidth="mobile">
+    <Container component="main">
       <CssBaseline />
       <Box
         sx={{
