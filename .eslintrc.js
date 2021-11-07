@@ -38,6 +38,10 @@ module.exports = {
     'max-params': ['error', 3], // 関数の引数の最大数 https://eslint.org/docs/rules/max-params
     'no-else-return': 'error', // https://eslint.org/docs/rules/no-else-return
     complexity: ['error', { max: 10 }], // 循環的複雑度の最大値 https://eslint.org/docs/rules/complexity
+    'consistent-return': 'error',
+    'prefer-const': 'error',
+    'require-await': 'error',
+    'newline-per-chained-call': ['error', { ignoreChainWithDepth: 1 }],
 
     // typescript
     '@typescript-eslint/no-empty-interface': 'off',
@@ -48,7 +52,6 @@ module.exports = {
     'import/first': 'error',
     'import/no-duplicates': 'error',
     'import/newline-after-import': 'error',
-    'import/no-default-export': 'error',
     'import/no-restricted-paths': [
       'error',
       {
