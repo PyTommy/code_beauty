@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { AppProvider } from './components/organisms/common/AppProvider'
+import { ThemeProvider } from './components/organisms/common/ThemeProvider'
 
 export const App = () => {
-  return <AppProvider>Hello World!</AppProvider>
+  return <ThemeProvider>Hello World!</ThemeProvider>
 }
