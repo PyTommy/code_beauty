@@ -5,7 +5,10 @@
       "@/*": ["src/*"],
       "@atoms/*": ["src/components/atoms/*"],
       "@molecules/*": ["src/components/molecules/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+
+      // @muiでstyled-componentsを使うための設定 : https://mui.com/guides/styled-engine/
+      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
     }
   }
 }
