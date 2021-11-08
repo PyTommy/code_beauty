@@ -39,10 +39,11 @@ declare module 'styled-components' {
       borderRadius: number
     }
     breakpoints: {
-      mobile: number
-      tablet: number
-      laptop: number
-      desktop: number
+      xs: number
+      sm: number
+      md: number
+      lg: number
+      xl: number
     }
   }
 }
