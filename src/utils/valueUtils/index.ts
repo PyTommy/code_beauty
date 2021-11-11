@@ -1,1 +1,2 @@
-export { VU as Email } from './email.utils'
+export * from './email.utils'
+export * from './password.utils'
