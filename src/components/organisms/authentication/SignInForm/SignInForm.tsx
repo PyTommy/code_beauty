@@ -1,27 +1,38 @@
+import { yupResolver } from '@hookform/resolvers/yup'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import Checkbox from '@mui/material/Checkbox'
 import Container from '@mui/material/Container'
 import CssBaseline from '@mui/material/CssBaseline'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Grid from '@mui/material/Grid'
-import Link from '@mui/material/Link'
-import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import * as React from 'react'
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
 
-interface Props {}
-// eslint-disable-next-line no-unused-vars
-export function SignInForm(props: Props) {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    // eslint-disable-next-line no-console
+import { Form } from '@/components/molecules/FormTextInput/Form'
+
+const SignInFormSchema = yup.object({
+  email: yup.string().required().email(),
+  password: yup.string().required().min(8),
+})
+type SignInFormSchema = yup.InferType<typeof SignInFormSchema>
+
+interface SignInFormProps {}
+// eslint-disable-next-line
+export function SignInForm(props: SignInFormProps) {
+  const { handleSubmit, control } = useForm<SignInFormSchema>({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+    mode: 'onChange',
+    resolver: yupResolver(SignInFormSchema),
+  })
+  const onSubmit = (data: SignInFormSchema) => {
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      email: data.email,
+      password: data.password,
     })
   }
 
@@ -41,47 +52,26 @@ export function SignInForm(props: Props) {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form.TextField
+            control={control}
             fullWidth
-            id="email"
             label="Email Address"
             name="email"
             autoComplete="email"
             autoFocus
           />
-          <TextField
-            margin="normal"
-            required
+          <Form.TextField
+            control={control}
             fullWidth
-            name="password"
             label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            name="password"
+            autoComplete="password"
           />
           <Button type="submit" fullWidth variant="contained">
             Sign In
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {'Do not have an account? Sign Up'}
-              </Link>
-            </Grid>
-          </Grid>
-        </Box>
+        </Form>
       </Box>
     </Container>
   )

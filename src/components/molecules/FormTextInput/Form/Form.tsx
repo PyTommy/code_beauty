@@ -4,7 +4,7 @@ import React from 'react'
 import { TextField } from './TextField'
 
 type Subs = {
-  FormTextInput: typeof TextField
+  TextField: typeof TextField
 }
 type FormProps = {
   children: React.ReactNode
@@ -21,6 +21,6 @@ const Form: React.FC<FormProps> & Subs = ({
     </Box>
   )
 }
-Form.FormTextInput = TextField
+Form.TextField = TextField
 
 export { Form }

@@ -1,27 +1,40 @@
-import { TextField as MuiTextField, TextFieldProps } from '@mui/material'
+import {
+  TextField as MuiTextField,
+  TextFieldProps as MuiTextFieldProps,
+} from '@mui/material'
 import React from 'react'
 import { useController, UseControllerProps } from 'react-hook-form'
 
-export const TextField = <FieldValues extends object>(props: {
-  controllerProps: UseControllerProps<FieldValues>
-  textFieldProps: Omit<
-    TextFieldProps,
-    | 'id'
-    | 'onChange'
-    | 'onBlur'
-    | 'value'
-    | 'name'
-    | 'inputRef'
-    | 'error'
-    | 'helperText'
-  > & { hintText?: string }
-}) => {
+type TextFieldProps<FieldValues> = Pick<
+  MuiTextFieldProps,
+  | 'style'
+  | 'name'
+  | 'label'
+  | 'autoComplete'
+  | 'placeholder'
+  | 'autoFocus'
+  | 'fullWidth'
+> & {
+  hintText?: string
+} & UseControllerProps<FieldValues>
+
+export const TextField = <FieldValues extends object>({
+  rules,
+  name,
+  shouldUnregister,
+  defaultValue,
+  control,
+  ...textFieldProps
+}: TextFieldProps<FieldValues>) => {
   const {
-    field: { onChange, onBlur, name, value, ref },
+    field: { onChange, onBlur, value, ref },
     fieldState: { error },
   } = useController({
-    rules: { required: true },
-    ...props.controllerProps,
+    rules,
+    name,
+    shouldUnregister,
+    defaultValue,
+    control,
   })
 
   return (
@@ -34,8 +47,8 @@ export const TextField = <FieldValues extends object>(props: {
       name={name} // send down the input name
       inputRef={ref} // send input ref, so we can focus on input when error appear
       error={!!error}
-      helperText={error?.message || props.textFieldProps.hintText}
-      {...props.textFieldProps}
+      helperText={error?.message || textFieldProps.hintText}
+      {...textFieldProps}
     />
   )
 }

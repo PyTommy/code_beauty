@@ -47,12 +47,15 @@
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.1",
+    "@hookform/resolvers": "^2.8.3",
     "@mui/icons-material": "^5.0.5",
     "@mui/material": "^5.0.6",
     "@mui/styled-engine-sc": "^5.0.4",
     "path-browserify": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "styled-components": "^5.3.3"
+    "react-hook-form": "^7.19.5",
+    "styled-components": "^5.3.3",
+    "yup": "^0.32.11"
   }
 }
